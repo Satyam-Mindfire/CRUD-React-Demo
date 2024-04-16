@@ -26,6 +26,14 @@ interface InputProps {
 
   //Type of the input field (optional)
   type?: string;
+
+  // Event handler function for the blur event
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+
+  value: string;
+
+   // Event handler when the input changes
+   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 // Define the FullNameInput functional component with props
@@ -38,7 +46,9 @@ const InputField: React.FC<InputProps> = ({
   errorClassName = "",
   errorMessage = "",
   type = "text",
-
+  onBlur = () => {},
+  value,
+  onChange
 }) => {
   return (
     <div className="inputFieldContainer">
@@ -49,7 +59,14 @@ const InputField: React.FC<InputProps> = ({
         {/* Conditionally render asterisk */}
       </label>
       {/* Input field */}
-      <input id={id} className={`inputField ${inputClassName}`} type={type}/>
+      <input
+        id={id}
+        className={`inputField ${inputClassName}`}
+        type={type}
+        onBlur={onBlur}
+        value={value}
+        onChange={onChange}
+      />
       <p className={`error-msg ${errorClassName}`}>{errorMessage}</p>
     </div>
   );

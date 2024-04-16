@@ -26,3 +26,11 @@ export const contestDataArr = [
     country: "USA",
   },
 ];
+
+// Error message constants
+export const ERROR_FULL_NAME_REQUIRED =
+  "Full Name is required and should be at least 3 characters long.";
+export const ERROR_INVALID_EMAIL = "Please enter a valid email address.";
+export const ERROR_INVALID_PHONE = "Please enter a valid 10-digit phone number.";
+export const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d\d$/;
