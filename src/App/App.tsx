@@ -64,6 +64,7 @@ function App() {
         updatedContestData.splice(index, 1);
         setContestData(updatedContestData);
       }
+      clearForm()
     }
   };
 
