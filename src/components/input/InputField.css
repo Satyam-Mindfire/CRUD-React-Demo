@@ -1,0 +1,15 @@
+.inputFieldLabel {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.inputField {
+  padding: 5px 10px 5px 10px;
+}
+.required-asterisk {
+  color: red;
+}
+.error-msg {
+  color: red;
+}

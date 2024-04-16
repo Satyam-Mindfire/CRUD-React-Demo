@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* General styling */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(250, 250, 251);
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 100%;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.header-text {
+  margin-top: 30px;
+  align-self: center;
+}
+
+.secondary-text {
+  margin-top: 5px;
+  align-self: center;
+}
+
+.inputFieldContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px 10px 20px;
+}
+
+.btnContainer {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+  border-style: hidden;
+}
+table {
+  border-collapse: separate;
+  width: 100%;
+  margin: 0px 10px 0px 10px;
+  text-indent: initial;
+}
+
+thead {
+  tr {
+    background-color: rgb(241, 241, 245);
+    border-radius: 15px;
+  }
+}
+
+tbody {
+  tr {
+    background-color: white;
+  }
+}
+
+.submit-btn {
+  min-width: 45%;
+  align-self: center;
+  background-color: blue;
+  color: white;
+}
+
+.submit-btn:disabled {
+  min-width: 45%;
+  align-self: center;
+  background-color: grey;
+  color: white;
+}
+.cancel-btn {
+  min-width: 45%;
+  align-self: center;
+  background-color: white;
+  color: blue;
+}

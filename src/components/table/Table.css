@@ -1,0 +1,12 @@
+.icon-button {
+  padding: 0; /* Remove default padding */
+  border: none; /* Optionally remove the border */
+  background: none; /* Optionally remove the background */
+  display: inline-flex; /* Use inline-flex to align image and text, if present */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  cursor: pointer; /* Make the button clickable */
+}
+.margin-left {
+  margin-left: 12px;
+}
