@@ -64,34 +64,45 @@ function App() {
         updatedContestData.splice(index, 1);
         setContestData(updatedContestData);
       }
-      clearForm()
+      clearForm();
     }
   };
 
   // Handle the submit button click
   const handleSubmit = () => {
+    // Create an object with form data as properties
     const personData: TableRow = {
       fullName: fullName.trim(),
       email: email.trim(),
-      gender: selectedGender ? selectedGender : "NA",
-      dob: dob ? dob : "NA",
+      gender: selectedGender ? selectedGender : "NA", // Use selected gender or default to "NA"
+      dob: dob ? dob : "NA", // Use date of birth or default to "NA"
       phone: phone.trim(),
-      city: city.trim() ? city.trim() : "NA",
+      city: city.trim() ? city.trim() : "NA", // Use city or default to "NA"
       country: selectedCountry,
     };
+
+    // Check if an entry with the given email already exists in contestData
     const index = contestData.findIndex((item) => item.email === email.trim());
 
+    // If an entry with the email is found, update the existing entry
     if (index !== -1) {
+      // Create a copy of the contestData array
       const updatedContestData = [...contestData];
+      // Update the existing entry at the found index
       updatedContestData[index] = personData;
+      // Update the state with the updated array
       setContestData(updatedContestData);
-    } else if (
-      fullName.trim().length >= 3 &&
-      emailPattern.test(email.trim()) &&
-      phone.trim().length === 10
+    }
+    // If no existing entry is found and the input data is valid
+    else if (
+      fullName.trim().length >= 3 && // Check if the full name has at least 3 characters
+      emailPattern.test(email.trim()) && // Check if the email is valid using regex pattern
+      phone.trim().length === 10 // Check if the phone number is exactly 10 digits long
     ) {
+      // Add the new personData to the contestData array
       setContestData([...contestData, personData]);
     }
+    // Clear the form fields after submitting the data
     clearForm();
   };
 
@@ -144,6 +155,7 @@ function App() {
   return (
     <>
       <div>
+        {/* Navbar */}
         <Navbar />
 
         <div className="container">
@@ -154,6 +166,7 @@ function App() {
               Fill out the form to participate in the contest
             </p>
             <div>
+              {/* Fullname input field */}
               <InputField
                 id="fullname"
                 label="Full Name"
@@ -163,6 +176,7 @@ function App() {
                 errorMessage={fullNameError}
                 onBlur={handleFullNameBlur}
               />
+              {/* email input field */}
               <InputField
                 id="email"
                 label="Email"
@@ -172,12 +186,15 @@ function App() {
                 errorMessage={emailError}
                 onBlur={handleEmailBlur}
               />
+
+              {/* Gender input field */}
               <GenderInput
                 selectedGender={selectedGender}
                 onGenderChange={(event) =>
                   setSelectedGender(event.target.value)
                 }
               />
+              {/* DOB input field */}
               <InputField
                 id="dob"
                 label="D.O.B"
@@ -185,6 +202,7 @@ function App() {
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
               />
+              {/* Phone input field */}
               <InputField
                 id="phone"
                 label="Phone No."
@@ -194,12 +212,14 @@ function App() {
                 errorMessage={phoneError}
                 onBlur={handlePhoneBlur}
               />
+              {/* City input field */}
               <InputField
                 id="city"
                 label="City"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
               />
+              {/* County drop down */}
               <Dropdown
                 options={countryObject}
                 selectedValue={selectedCountry}
@@ -207,12 +227,14 @@ function App() {
                 label="Country"
               />
               <div className="btnContainer">
+                {/* Submit button */}
                 <Button
                   children="Submit"
                   onClick={handleSubmit}
                   disabled={validateForm()}
                   className="submit-btn"
                 />
+                {/* Cancel button */}
                 <Button
                   children="Cancel"
                   onClick={clearForm}
@@ -222,6 +244,7 @@ function App() {
             </div>
           </form>
           <hr />
+          {/* Table container */}
           <div className="table">
             <h1 className="header-text">Contest Data</h1>
             <br />
